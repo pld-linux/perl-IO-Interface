@@ -6,7 +6,7 @@
 %define		pdir	IO
 %define		pnam	Interface
 Summary:	IO::Interface - Perl extension to access interface information
-Summary(pl):	IO::Interface - rozszerzenie Perla do dostêpu do informacji o interfejsach
+Summary(pl.UTF-8):   IO::Interface - rozszerzenie Perla do dostÄ™pu do informacji o interfejsach
 Name:		perl-IO-Interface
 Version:	1.02
 Release:	1
@@ -25,11 +25,11 @@ be used to retrieve and change information about the network
 interfaces on your system.  In addition to the object-oriented access
 methods, you can use a function-oriented style.
 
-%description -l pl
-IO::Interface dodaje do obiektów IO::Socket metody pozwalaj±ce na
-u¿ywanie ich do pobierania i zmiany informacji o interfejsach
-sieciowych w systemie. Oprócz metod zorientowanych obiektowo mo¿na
-u¿ywaæ tak¿e wywo³añ zorientowanych na funkce.
+%description -l pl.UTF-8
+IO::Interface dodaje do obiektÃ³w IO::Socket metody pozwalajÄ…ce na
+uÅ¼ywanie ich do pobierania i zmiany informacji o interfejsach
+sieciowych w systemie. OprÃ³cz metod zorientowanych obiektowo moÅ¼na
+uÅ¼ywaÄ‡ takÅ¼e wywoÅ‚aÅ„ zorientowanych na funkce.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
