@@ -6,7 +6,7 @@
 %define		pdir	IO
 %define		pnam	Interface
 Summary:	IO::Interface - Perl extension to access interface information
-Summary(pl.UTF-8):   IO::Interface - rozszerzenie Perla do dostępu do informacji o interfejsach
+Summary(pl.UTF-8):	IO::Interface - rozszerzenie Perla do dostępu do informacji o interfejsach
 Name:		perl-IO-Interface
 Version:	1.02
 Release:	1
