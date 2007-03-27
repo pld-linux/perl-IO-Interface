@@ -9,7 +9,7 @@ Summary:	IO::Interface - Perl extension to access interface information
 Summary(pl.UTF-8):	IO::Interface - rozszerzenie Perla do dostępu do informacji o interfejsach
 Name:		perl-IO-Interface
 Version:	1.02
-Release:	1
+Release:	2
 License:	GPL v2/Artistic (same as perl)
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
