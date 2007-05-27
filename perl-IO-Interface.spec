@@ -10,9 +10,10 @@ Summary(pl.UTF-8):	IO::Interface - rozszerzenie Perla do dostępu do informacji 
 Name:		perl-IO-Interface
 Version:	1.03
 Release:	1
-License:	GPL v2/Artistic (same as perl)
+# same as perl
+License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
-Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
+Source0:	http://www.cpan.org/modules/by-module/IO/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	bbdc1ded0d51e8c509d87390bd824fd7
 URL:		http://search.cpan.org/dist/IO-Interface/
 BuildRequires:	perl-devel >= 1:5.8.0
