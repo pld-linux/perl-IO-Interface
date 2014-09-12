@@ -62,6 +62,5 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorarch}/IO/Interface/Simple.pm
 %dir %{perl_vendorarch}/auto/IO/Interface
 %attr(755,root,root) %{perl_vendorarch}/auto/IO/Interface/*.so
-%{perl_vendorarch}/auto/IO/Interface/*.bs
 %{perl_vendorarch}/auto/IO/Interface/autosplit.ix
 %{_mandir}/man3/*
