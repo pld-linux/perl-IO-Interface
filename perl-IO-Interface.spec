@@ -1,22 +1,24 @@
 #
 # Conditional build:
-%bcond_with	tests	# do not perform "make test"
+%bcond_without	tests	# unit tests
 #
 %define		pdir	IO
 %define		pnam	Interface
 Summary:	IO::Interface - Perl extension to access interface information
 Summary(pl.UTF-8):	IO::Interface - rozszerzenie Perla do dostępu do informacji o interfejsach
 Name:		perl-IO-Interface
-Version:	1.08
-Release:	2
-# same as perl
-License:	GPL v1+ or Artistic
+Version:	1.09
+Release:	1
+License:	Artistic v2.0
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/IO/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	38c292a4d0976dd38179cfbfdca5e777
-URL:		http://search.cpan.org/dist/IO-Interface/
+# Source0-md5:	806f97aff5a7361b6f54cd494f4cc9fd
+URL:		https://metacpan.org/release/IO-Interface
+BuildRequires:	perl-ExtUtils-CBuilder
+BuildRequires:	perl-Module-Build
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
+BuildRequires:	rpmbuild(macros) >= 1.745
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -35,31 +37,31 @@ używać także wywołań zorientowanych na funkce.
 %setup -q -n %{pdir}-%{pnam}-%{version}
 
 %build
-%{__perl} Makefile.PL \
-	INSTALLDIRS=vendor
+%{__perl} Build.PL \
+	--config optimize='%{rpmcflags}' \
+	--installdirs=vendor
 
-%{__make} \
-	CC="%{__cc}" \
-	OPTIMIZE="%{rpmcflags}"
+./Build
 
-%{?with_tests:%{__make} test}
+%{?with_tests:./Build test}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} pure_install \
-	DESTDIR=$RPM_BUILD_ROOT
+./Build install \
+	--destdir $RPM_BUILD_ROOT
+
+%{__rm} $RPM_BUILD_ROOT%{perl_vendorarch}/auto/IO/Interface/*.bs
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc Changes README
+%doc Changes README.md
 %{perl_vendorarch}/IO/Interface.pm
 %dir %{perl_vendorarch}/IO/Interface
 %{perl_vendorarch}/IO/Interface/Simple.pm
 %dir %{perl_vendorarch}/auto/IO/Interface
-%attr(755,root,root) %{perl_vendorarch}/auto/IO/Interface/*.so
-%{perl_vendorarch}/auto/IO/Interface/autosplit.ix
-%{_mandir}/man3/*
+%attr(755,root,root) %{perl_vendorarch}/auto/IO/Interface/Interface.so
+%{_mandir}/man3/IO::Interface*.3pm*
